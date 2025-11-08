@@ -1,0 +1,137 @@
+.stApp {
+  background-color: #f7f9fb;
+  color: #0f1720;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+:root {
+  --accent-500: #0b63a5;
+  --accent-50: #eef9f6;
+  --card-border: rgba(11, 99, 165, 0.06);
+}
+
+.main-container {
+  background-color: #ffffff;
+  padding: 1.75rem 2rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+  margin-top: 1.5rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1,
+h2,
+h3 {
+  color: #0b1220;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.stNumberInput input,
+.stTextInput input,
+.stTextArea textarea,
+.stSelectbox select {
+  padding: 8px 10px !important;
+  border-radius: 8px !important;
+  border: 1px solid #e6e9ee !important;
+  background: #ffffff !important;
+  min-width: 110px;
+}
+
+div[data-testid='stButton'] button {
+  background-color: #0b63a5;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(11, 99, 165, 0.12);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+div[data-testid='stButton'] button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(11, 99, 165, 0.16);
+  background-color: #094e86;
+}
+
+.main-container .stMarkdown,
+.main-container .stHeader {
+  margin-bottom: 10px;
+}
+.stDivider {
+  margin: 12px 0;
+}
+
+.var-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.muted {
+  color: #6b7280;
+  font-size: 0.9em;
+}
+
+.main-container .stMarkdown h1,
+.main-container .stMarkdown h2,
+.main-container .stMarkdown h3 {
+  color: #071739;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.main-container hr {
+  height: 1px;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    rgba(11, 99, 165, 0),
+    rgba(11, 99, 165, 0.08),
+    rgba(11, 99, 165, 0)
+  );
+  margin: 12px 0 18px 0;
+}
+
+.card {
+  background: linear-gradient(180deg, var(--accent-50), #ffffff);
+  border: 1px solid var(--card-border);
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(11, 99, 165, 0.02);
+}
+
+.stNumberInput input:focus,
+.stTextInput input:focus,
+.stTextArea textarea:focus {
+  outline: none !important;
+  box-shadow: 0 6px 18px rgba(11, 99, 165, 0.06) !important;
+  border-color: rgba(11, 99, 165, 0.18) !important;
+}
+
+.results {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #f0f2f5;
+}
+
+@media (max-width: 720px) {
+  .main-container {
+    padding: 1rem;
+  }
+  .stNumberInput input {
+    min-width: 80px;
+  }
+}
+
+.site-footer {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+  padding: 12px 0 18px 0;
+}
