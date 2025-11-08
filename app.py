@@ -1,24 +1,45 @@
 import os
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 from solver.solver import solve_lp
 
-_ICON_PATH = os.path.join(os.path.dirname(__file__), "image.png")
+# page icon (uses repo static/logo.png)
+_ICON_PATH = os.path.join(os.path.dirname(__file__), "static", "logo.png")
 st.set_page_config(page_title="LP Solver", layout="centered", page_icon=_ICON_PATH)
 
+# Load CSS from the repository static folder. We inject it both via st.markdown and
+# as an HTML component fallback because some hosting environments may handle
+# HTML/CSS injection differently.
 css_path = os.path.join(os.path.dirname(__file__), "static", "styles.css")
-with open(css_path, "r", encoding="utf-8") as _css:
-    css_content = _css.read()
-st.markdown(f"<style>{css_content}</style>", unsafe_allow_html=True)
+css_content = None
+if os.path.exists(css_path):
+    try:
+        with open(css_path, "r", encoding="utf-8") as _css:
+            css_content = _css.read()
+    except Exception as _e:
+        st.warning(f"Não foi possível ler o CSS em {css_path}: {_e}")
+else:
+    st.warning(f"Arquivo de estilos não encontrado em {css_path}")
 
-hide_streamlit_style = """
-<style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-header {visibility: hidden;}
-</style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+if css_content:
+    # primary injection
+    st.markdown(f"<style>{css_content}</style>", unsafe_allow_html=True)
+    # fallback injection that sometimes works better in hosted environments
+    try:
+        components.html(f"<style>{css_content}</style>", height=0)
+    except Exception:
+        # non-fatal; components may not accept empty-height content on some versions
+        components.html(f"<style>{css_content}</style>")
+
+# hide_streamlit_style = """
+# <style>
+# #MainMenu {visibility: hidden;}
+# footer {visibility: hidden;}
+# header {visibility: hidden;}
+# </style>
+# """
+# st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 with st.container():
     st.title("Solucionador de Programação Linear")
