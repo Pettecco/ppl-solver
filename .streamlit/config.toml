@@ -1,0 +1,7 @@
+[theme]
+base = "light"
+primaryColor = "#0066ff"      # cor principal (opcional)
+backgroundColor = "#ffffff"   # fundo branco
+secondaryBackgroundColor = "#f0f2f6"  # fundo dos containers
+textColor = "#000000"         # texto preto
+font = "sans serif"           # fonte padrão

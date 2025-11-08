@@ -11,6 +11,5 @@ dist/
 *.egg-info/
 .vscode/
 .idea
-.streamlit/
 .DS_Store
 Thumbs.db
